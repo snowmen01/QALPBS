@@ -69,7 +69,7 @@ Nếu Client chạy nhanh hơn Server 1 phút:
 * Nếu Server chỉ kiểm tra khớp với thời gian hiện tại của mình, mã OTP sẽ bị báo **không hợp lệ (Invalid)**. Điều này gây ra trải nghiệm người dùng tệ (UX), khách hàng không hiểu tại sao mình nhập đúng số trên màn hình mà vẫn bị từ chối.
 
 ### 2. Giải pháp kỹ thuật:
-Để xử lý vấn đề này, Server cần triển khai cơ chế **"Window Size" (Của sổ xác thực)**:
+Để xử lý vấn đề này, Server cần triển khai cơ chế **Quá khứ + Hiện Tại + Tương Lai**:
 * Thay vì chỉ tính toán OTP cho thời điểm `T` (hiện tại), Server sẽ tính toán và chấp nhận các mã trong khoảng `[T - 2, T + 2]`.
 * Với độ lệch 1 phút (2 steps), ta cần cấu hình `windowSize >= 2`.
 
