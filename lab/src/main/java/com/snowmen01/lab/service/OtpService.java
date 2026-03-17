@@ -48,7 +48,7 @@ public class OtpService {
     }
 
     public OtpResponse verifySmartOtp(VerifyRequest request) {
-        UserOtpEntity entity = otpRepository.findByUserId(request.userId());
+        UserOtpEntity entity = otpRepository.findById(request.userId()).orElse(null);
         if (entity == null) {
             return new OtpResponse(request.userId(), "FAILED", "Người dùng chưa đăng ký Smart OTP", null);
         }

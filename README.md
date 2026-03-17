@@ -10,7 +10,7 @@ Giả sử người dùng đã đăng nhập thành công. Hãy định nghĩa c
 * Một số API cần thiết mà Client (Mobile App) và Server cần thực hiện luồng Smart OTP này:
     * POST /api/v1/otp/enroll: Client gửi deviceId và userId lên để đăng ký.
     
-    * POST /api/v1/otp/confirm-enroll: Khách nhập mã SMS OTP cuối cùng để xác nhận "chính chủ". Server sau đó trả về Secret Key đã mã hóa để App lưu vào vùng an toàn. (Lưu đồng thời secret key vào database + client)
+    * POST /api/v1/otp/confirm: Khách nhập mã SMS OTP cuối cùng để xác nhận "chính chủ". Server sau đó trả về Secret Key đã mã hóa để App lưu vào vùng an toàn. (Lưu đồng thời secret key vào database + client)
     
     * POST /api/v1/otp/verify: Dùng để xác thực giao dịch. Client gửi otp_code sinh ra từ App và transaction_id. (Bước cuối cùng để kiểm thử xem Smart OTP có hoạt động đúng không).
 
