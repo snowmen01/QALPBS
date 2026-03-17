@@ -74,25 +74,14 @@ Nếu Client chạy nhanh hơn Server 1 phút:
 * Với độ lệch 1 phút (2 steps), ta cần cấu hình `windowSize >= 2`.
 
 ### 3. Đánh giá về TDD và Clean Architecture:
-Em đã tạo Unit Test cho các trường hợp | Ở giữa, 2 đầu và ngoài phạm vi
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running com.snowmen01.lab.domain.OtpGeneratorTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.100 s -- in com.snowmen01.lab.domain.OtpGeneratorTest
-[INFO] Running com.snowmen01.lab.domain.OtpVerifierTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.snowmen01.lab.domain.OtpVerifierTest
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.654 s
-[INFO] Finished at: 2026-03-17T14:47:07+07:00
-[INFO] --   ----------------------------------------------------------------------
+Em đã thực hiện đầy đủ các bước của TDD và tuân thủ Clean Architecture:
+* **TDD (Test-Driven Development)**: 
+    * Toàn bộ logic xác thực (`OtpVerifier`) và tạo mã (`OtpGenerator`) đều có bộ Unit Test đi kèm.
+    * Em đã tạo các Test Case bao quát các trường hợp: mã hiện tại, mã lệch 30s-60s và mã nằm ngoài phạm vi window.
+    * Việc chạy Test thành công (`BUILD SUCCESS`) chứng minh logic xử lý độ lệch thời gian 1 phút đã hoạt động đúng như yêu cầu.
+* **Clean Architecture**: 
+    * Logic cốt lõi (Domain logic) được tách biệt hoàn toàn vào package `com.snowmen01.lab.domain`.
+    * Các class này là **Java thuần túy**, không phụ thuộc vào Spring Boot hay Database, đảm bảo tính dễ kiểm thử (Testability) và linh hoạt.
 
 
 ## BỐI CẢNH 2: TRẢI NGHIỆM ĐA NỀN TẢNG (OMNICHANNEL) 
